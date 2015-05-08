@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using tar_cs;
 
 namespace tar_cs
@@ -139,7 +140,8 @@ namespace tar_cs
                 if (bytesRead == 0)
                 {
                     if (ReadOnZero)
-                        Thread.Sleep(100);
+                        Task.Delay(TimeSpan.FromMilliseconds(100));
+                        //Thread.Sleep(100);
                     else
                         break;
                 }
