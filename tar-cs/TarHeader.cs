@@ -115,17 +115,17 @@ namespace tar_cs
 
             if((buffer[124] & 0x80) == 0x80) // if size in binary
             {
-                long sizeBigEndian = BitConverter.ToInt64(buffer,0x80);
+                long sizeBigEndian = BitConverter.ToInt64(buffer, 0x80);
                 SizeInBytes = IPAddress.NetworkToHostOrder(sizeBigEndian);
             }
             else
             {
-                SizeInBytes = Convert.ToInt64(Encoding.ASCII.GetString(buffer, 124, 11), 8);
+				SizeInBytes = Convert.ToInt64(Encoding.ASCII.GetString(buffer, 124, 11).Trim(), 8);
             }
-            long unixTimeStamp = Convert.ToInt64(Encoding.ASCII.GetString(buffer,136,11),8);
+			long unixTimeStamp = Convert.ToInt64(Encoding.ASCII.GetString(buffer,136,11).Trim(),8);
             LastModification = TheEpoch.AddSeconds(unixTimeStamp);
 
-            var storedChecksum = Convert.ToInt32(Encoding.ASCII.GetString(buffer,148,6));
+			var storedChecksum = Convert.ToInt32(Encoding.ASCII.GetString(buffer,148,6).Trim());
             RecalculateChecksum(buffer);
             if (storedChecksum == headerChecksum)
             {

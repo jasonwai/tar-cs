@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{EB72A9A7-CA67-4DA1-BD5B-331C61270992}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>tar-cs-shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IArchiveDataWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ITarHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LegacyTarWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TarException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TarHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TarReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TarWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UsTarHeader.cs" />
+  </ItemGroup>
+</Project>
